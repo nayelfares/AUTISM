@@ -44,6 +44,14 @@ public class GeneralRegister extends BaseFragment {
                         mobileNumber.getText().toString()
                 ));
             }
+            if (pateint.isChecked()) {
+                ((OnboardingProcess) requireActivity()).replaceFragment(new PateintRegistration(
+                        username.getText().toString(),
+                        email.getText().toString(),
+                        password.getText().toString(),
+                        mobileNumber.getText().toString()
+                ));
+            }
         });
     }
 }
