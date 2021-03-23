@@ -18,7 +18,7 @@ public class OnboardingProcess extends AppCompatActivity {
         replaceFragment(new LoginFragment());
     }
 
-    void replaceFragment(Fragment fragment){
+    public void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.addToBackStack(null);
