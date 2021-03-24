@@ -23,4 +23,6 @@
     <string name="parent_job">Parent job</string>
     <string name="child_main_problem">Child main problem</string>
     <string name="child_number">Child number</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
 </resources>

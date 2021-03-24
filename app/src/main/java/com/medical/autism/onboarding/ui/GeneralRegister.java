@@ -16,6 +16,8 @@ import com.medical.autism.onboarding.OnboardingProcess;
 
 public class GeneralRegister extends BaseFragment {
 
+    EditText firstname;
+    EditText lastname;
     EditText username;
     EditText email;
     EditText password;
@@ -28,6 +30,8 @@ public class GeneralRegister extends BaseFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        firstname     = requireActivity().findViewById(R.id.generalRegisterFirstName);
+        lastname     = requireActivity().findViewById(R.id.generalRegisterLastname);
         username     = requireActivity().findViewById(R.id.generalRegisterUsername);
         email        = requireActivity().findViewById(R.id.generalRegisterEmail);
         password     = requireActivity().findViewById(R.id.generalRegisterPassword);
@@ -38,6 +42,8 @@ public class GeneralRegister extends BaseFragment {
         next.setOnClickListener(v ->{
             if (trainer.isChecked()) {
                 ((OnboardingProcess) requireActivity()).replaceFragment(new TrainerRegistration(
+                        firstname.getText().toString(),
+                        lastname.getText().toString(),
                         username.getText().toString(),
                         email.getText().toString(),
                         password.getText().toString(),
@@ -46,6 +52,8 @@ public class GeneralRegister extends BaseFragment {
             }
             if (pateint.isChecked()) {
                 ((OnboardingProcess) requireActivity()).replaceFragment(new PateintRegistration(
+                        firstname.getText().toString(),
+                        lastname.getText().toString(),
                         username.getText().toString(),
                         email.getText().toString(),
                         password.getText().toString(),

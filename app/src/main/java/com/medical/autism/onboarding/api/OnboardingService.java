@@ -11,5 +11,15 @@ import retrofit2.http.Query;
 
 public interface OnboardingService {
     @POST("user-login")
-    Observable<Response> login(@Query("email") String email, @Query("password") String password);
+    Observable<Response> login(
+            @Query("email") String email,
+            @Query("password") String password
+    );
+
+    @POST("user-register")
+    Observable<Response> register(
+            @Query("user_name") String user_name,
+            @Query("password") String password
+    );
+
 }
