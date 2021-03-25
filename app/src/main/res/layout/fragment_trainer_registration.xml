@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
     tools:deviceIds="wear">
 
     <ImageView
@@ -113,7 +116,7 @@
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:gravity="center"
-        android:inputType="text"
+        android:inputType="number"
         android:background="@drawable/ic_edittext_border"
         android:textSize="16sp"
         android:textColor="@color/black"
@@ -136,7 +139,7 @@
         android:layout_height="60dp"
         android:gravity="center"
         android:lines="4"
-        android:inputType="text"
+        android:inputType="number"
         android:background="@drawable/ic_edittext_border"
         android:textSize="16sp"
         android:textColor="@color/black"

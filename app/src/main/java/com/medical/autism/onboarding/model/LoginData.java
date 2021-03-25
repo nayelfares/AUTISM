@@ -1,27 +1,13 @@
 package com.medical.autism.onboarding.model;
 
-public class LoginData {
-    String email;
-    String password;
+public class LoginData{
+    public String token;
+    public Integer id;
+    public String type;
 
-    public LoginData(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public LoginData(String token, Integer id, String type) {
+        this.token = token;
+        this.id = id;
+        this.type = type;
     }
 }

@@ -34,7 +34,7 @@ public class LoginViewModel {
 
                     @Override
                     public void onNext(@NonNull Response response) {
-                            loginView.loginSuccess(response.message);
+                            loginView.loginSuccess(response.data);
                     }
 
                     @Override

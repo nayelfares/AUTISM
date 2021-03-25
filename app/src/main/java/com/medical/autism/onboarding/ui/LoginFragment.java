@@ -1,6 +1,7 @@
 package com.medical.autism.onboarding.ui;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,6 +15,7 @@ import com.medical.autism.BaseFragment;
 import com.medical.autism.MainActivity;
 import com.medical.autism.R;
 import com.medical.autism.onboarding.OnboardingProcess;
+import com.medical.autism.onboarding.model.LoginData;
 import com.medical.autism.onboarding.vm.LoginViewModel;
 
 
@@ -44,9 +46,13 @@ public class LoginFragment extends BaseFragment implements LoginView {
     }
 
     @Override
-    public void loginSuccess(String message) {
+    public void loginSuccess(LoginData data) {
         stopLoading();
-        showMessage(message);
+        MainActivity.id    = data.id;
+        MainActivity.token = "Bearer "+data.token;
+        MainActivity.type  = data.type;
+        requireActivity().startActivity(new Intent(requireContext(),MainActivity.class));
+        requireActivity().finish();
     }
 
     @Override

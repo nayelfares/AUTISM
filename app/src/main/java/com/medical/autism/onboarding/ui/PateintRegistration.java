@@ -93,11 +93,18 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
 
     @Override
     public void registrationSuccess(String message) {
-
+        stopLoading();
+        showMessage(message);
+        LoginFragment fragment =(LoginFragment) requireActivity().getSupportFragmentManager().getFragments().get(0);
+        fragment.email.setText(email);
+        fragment.password.setText(password);
+        requireActivity().getSupportFragmentManager().popBackStack();
+        requireActivity().getSupportFragmentManager().popBackStack();
     }
 
     @Override
     public void registrationFailed(String message) {
-
+        stopLoading();
+        showMessage(message);
     }
 }

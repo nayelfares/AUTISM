@@ -19,13 +19,12 @@ public class OnboardingProcess extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, new LoginFragment());
         transaction.commit();
-
     }
 
     public void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null);
+        transaction.add(R.id.fragment_container, fragment);
+        transaction.addToBackStack(fragment.getTag());
         transaction.commit();
     }
 }
