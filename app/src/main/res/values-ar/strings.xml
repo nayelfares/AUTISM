@@ -25,4 +25,6 @@
     <string name="child_number">Child number</string>
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
+    <string name="approve_conditions_first">You have to agree term and conditions first</string>
+    <string name="marriage_status">Marriage status</string>
 </resources>

@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiManager {
     public static  Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("https://pike.towarddevelopment.org/api/")
+            .baseUrl("https://crm.towarddevelopment.org/api/")
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .build();

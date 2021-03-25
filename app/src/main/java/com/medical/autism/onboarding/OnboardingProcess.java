@@ -15,7 +15,11 @@ public class OnboardingProcess extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding_process);
-        replaceFragment(new LoginFragment());
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new LoginFragment());
+        transaction.commit();
+
     }
 
     public void replaceFragment(Fragment fragment){

@@ -23,7 +23,7 @@
         android:layout_marginEnd="32dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:gravity="center"
         android:inputType="text"
         android:background="@drawable/ic_edittext_border"
@@ -44,7 +44,7 @@
         android:layout_marginEnd="32dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:gravity="center"
         android:inputType="text"
         android:background="@drawable/ic_edittext_border"
@@ -65,7 +65,7 @@
         android:layout_marginEnd="32dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:gravity="center"
         android:inputType="text"
         android:background="@drawable/ic_edittext_border"
@@ -86,7 +86,7 @@
         android:layout_marginEnd="32dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:gravity="center"
         android:inputType="textEmailAddress"
         android:background="@drawable/ic_edittext_border"
@@ -108,7 +108,7 @@
         android:layout_marginEnd="32dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:gravity="center"
         android:background="@drawable/ic_edittext_border"
         android:inputType="textPassword"
@@ -130,7 +130,7 @@
         android:layout_marginEnd="32dp"/>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="32dp"
         android:gravity="center"
         android:background="@drawable/ic_edittext_border"
         android:inputType="number"
