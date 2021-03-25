@@ -106,12 +106,11 @@
         android:textSize="18sp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"/>
-    <androidx.appcompat.widget.AppCompatEditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:gravity="center"
         android:inputType="text"
-        android:background="@drawable/ic_edittext_border"
         android:textSize="16sp"
         android:textColor="@color/black"
         android:layout_marginTop="8dp"

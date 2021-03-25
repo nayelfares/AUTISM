@@ -32,7 +32,7 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
     EditText child_age;
     EditText parent_job;
     Spinner marriage_status;
-    EditText parent_gender;
+    Spinner parent_gender;
     EditText child_number;
     EditText child_main_problem;
     CheckBox conditions;
@@ -67,18 +67,23 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
         ArrayAdapter<String> adapter = new ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,items);
         marriage_status.setAdapter(adapter);
 
+        String[] genders = new String[]{"Male","Female"};
+        ArrayAdapter<String> genderAdapter = new ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item,genders);
+        parent_gender.setAdapter(genderAdapter);
+
         register.setOnClickListener(v->{
             if (conditions.isChecked()){
                 loading();
                 registrationViewModel.register(
                         firstname,lastname,username,email,password,mobileNumber,type,
-                        speciality.getText().toString(),
-                        collage.getText().toString(),
-                        previous_clincs.getText().toString(),
-                        clinic_address.getText().toString(),
-                        experience_years.getText().toString(),
-                        certificate_number.getText().toString(),
-                        child_name.getText(),"","","","","",""
+                        "","","","","","",
+                        child_name.getText().toString(),
+                        child_age.getText().toString(),
+                        parent_job.getText().toString(),
+                        marriage_status.getSelectedItem().toString(),
+                        parent_gender.getSelectedItem().toString(),
+                        child_number.getText().toString(),
+                        child_main_problem.getText().toString()
                 );
             }else
                 showMessage(requireContext().getResources().getString(R.string.approve_conditions_first));
