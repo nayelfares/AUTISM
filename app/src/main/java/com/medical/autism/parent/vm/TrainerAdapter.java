@@ -1,24 +1,27 @@
 package com.medical.autism.parent.vm;
 
 
+import android.app.Dialog;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.medical.Util;
 import com.medical.autism.R;
 import com.medical.autism.parent.ParentActivity;
 import com.medical.autism.parent.model.Trainer;
+import com.medical.autism.parent.ui.Appointments;
 import com.medical.autism.parent.ui.SingleTrainer;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -33,7 +36,6 @@ public class TrainerAdapter extends RecyclerView.Adapter<TrainerAdapter.ViewHold
         this.context  = context;
     }
 
-    // Create new views (invoked by the layout manager)
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
@@ -43,7 +45,6 @@ public class TrainerAdapter extends RecyclerView.Adapter<TrainerAdapter.ViewHold
         return new ViewHolder(view);
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
         Trainer trainer = trainers[position];
@@ -65,7 +66,27 @@ public class TrainerAdapter extends RecyclerView.Adapter<TrainerAdapter.ViewHold
                         return true;
                     }
                     case R.id.viewAppointments: {
-                        //handle menu2 click
+
+                        Dialog dialog = new Dialog(context, R.style.Theme_Design_BottomSheetDialog);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        dialog.setCancelable(false);
+                        dialog.setContentView(R.layout.pick_date);
+                        Button cancel =dialog.findViewById(R.id.datePickerCancel);
+                        cancel.setOnClickListener(v1->{
+                            dialog.dismiss();
+                        });
+                        Button ok =dialog.findViewById(R.id.datePickerOk);
+                        ok.setOnClickListener(v2-> {
+                                    dialog.dismiss();
+                                    DatePicker datePicker =dialog.findViewById(R.id.datePicker);
+                            ((ParentActivity) context).replaceFragment(new Appointments(
+                                    trainer.id,datePicker.getYear()+"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth()));
+                        });
+
+                        Window window = dialog.getWindow();
+                        window.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
+                        dialog.show();
+
                         return true;
                     }
                     default:

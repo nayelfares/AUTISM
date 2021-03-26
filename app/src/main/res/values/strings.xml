@@ -44,4 +44,8 @@
     <string name="submit_rating">Submit Rating</string>
     <string name="language">language</string>
     <string name="details">Details :</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">Ok</string>
+    <string name="choose_شppropriate_time">Choose Appropriate Time</string>
+    <string name="no_available_appointments">No Available Appointments</string>
 </resources>
