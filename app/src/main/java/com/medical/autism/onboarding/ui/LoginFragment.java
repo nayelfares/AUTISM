@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.medical.autism.BaseFragment;
-import com.medical.autism.MainActivity;
+import com.medical.autism.parent.ParentActivity;
 import com.medical.autism.R;
 import com.medical.autism.onboarding.OnboardingProcess;
 import com.medical.autism.onboarding.model.LoginData;
@@ -48,10 +48,10 @@ public class LoginFragment extends BaseFragment implements LoginView {
     @Override
     public void loginSuccess(LoginData data) {
         stopLoading();
-        MainActivity.id    = data.id;
-        MainActivity.token = "Bearer "+data.token;
-        MainActivity.type  = data.type;
-        requireActivity().startActivity(new Intent(requireContext(),MainActivity.class));
+        ParentActivity.id    = data.id;
+        ParentActivity.token = "Bearer "+data.token;
+        ParentActivity.type  = data.type;
+        requireActivity().startActivity(new Intent(requireContext(), ParentActivity.class));
         requireActivity().finish();
     }
 
