@@ -17,6 +17,7 @@ import com.medical.autism.R;
 import com.medical.autism.onboarding.OnboardingProcess;
 import com.medical.autism.onboarding.model.LoginData;
 import com.medical.autism.onboarding.vm.LoginViewModel;
+import com.medical.autism.trainer.TrainerActivity;
 
 
 public class LoginFragment extends BaseFragment implements LoginView {
@@ -51,7 +52,7 @@ public class LoginFragment extends BaseFragment implements LoginView {
         ParentActivity.id    = data.id;
         ParentActivity.token = "Bearer "+data.token;
         ParentActivity.type  = data.type;
-        requireActivity().startActivity(new Intent(requireContext(), ParentActivity.class));
+        requireActivity().startActivity(new Intent(requireContext(), TrainerActivity.class));
         requireActivity().finish();
     }
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/trainer_Patients"
+        android:icon="@drawable/ic_people"
+        android:title="Patients"/>
+    <item android:id="@+id/trainer_join_virtual_session"
+        android:icon="@drawable/ic_jion_virtual_session"
+        android:title="Join Virtual Session"/>
+    <item android:id="@+id/trainer_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Profile"/>
+    <item android:id="@+id/trainer_chat"
+        android:icon="@drawable/ic_chat"
+        android:title="Chat"/>
+    <item android:id="@+id/trainer_appointments"
+        android:icon="@drawable/ic_calendar"
+        android:title="Appointments"/>
+    <item android:id="@+id/trainer_schedualed"
+        android:icon="@drawable/ic_schedualed"
+        android:title="schedualed"/>
+</menu>

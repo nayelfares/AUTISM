@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".parent.ParentActivity"
             android:theme="@style/Theme.AUTISM"/>
+        <activity android:name=".trainer.TrainerActivity"
+            android:theme="@style/Theme.AUTISM"/>
     </application>
 
 </manifest>
