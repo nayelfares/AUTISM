@@ -3,7 +3,7 @@ package com.medical.autism.onboarding.vm;
 import android.content.Context;
 
 import com.medical.autism.onboarding.api.OnbordingApiManager;
-import com.medical.autism.onboarding.model.Response;
+import com.medical.autism.onboarding.model.LoginResponse;
 import com.medical.autism.onboarding.ui.RegistrationView;
 
 import io.reactivex.Observable;
@@ -12,7 +12,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
-import retrofit2.http.Query;
 
 public class RegistrationViewModel {
     public RegistrationView registrationView;
@@ -45,22 +44,22 @@ public class RegistrationViewModel {
             String child_number,
             String child_main_problem
     ){
-        Observable<Response> loginObservable =
+        Observable<LoginResponse> loginObservable =
                 OnbordingApiManager.onboardingService.register(first_name, last_name, user_name, email, password, phone, type, speciality, collage, previous_clincs, clinic_address, experience_years, certificate_number, child_name, child_age, parent_job, marriage_status, parent_gender, child_number, child_main_problem);
         loginObservable.subscribeOn(Schedulers.newThread()).
                 observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response>(){
+                .subscribe(new Observer<LoginResponse>(){
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull Response response) {
-                        if (response.success)
-                            registrationView.registrationSuccess(response.message);
+                    public void onNext(@NonNull LoginResponse loginResponse) {
+                        if (loginResponse.success)
+                            registrationView.registrationSuccess(loginResponse.message);
                         else
-                            registrationView.registrationFailed(response.message);
+                            registrationView.registrationFailed(loginResponse.message);
                     }
 
                     @Override

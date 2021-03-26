@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatImageButton;
@@ -16,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.medical.Util;
 import com.medical.autism.R;
+import com.medical.autism.parent.ParentActivity;
 import com.medical.autism.parent.model.Trainer;
+import com.medical.autism.parent.ui.SingleTrainer;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -58,7 +61,7 @@ public class TrainerAdapter extends RecyclerView.Adapter<TrainerAdapter.ViewHold
             popup.setOnMenuItemClickListener(item -> {
                 switch (item.getItemId()) {
                     case R.id.viewTrainer: {
-                        //handle menu1 click
+                        ((ParentActivity) context).replaceFragment(new SingleTrainer(trainer));
                         return true;
                     }
                     case R.id.viewAppointments: {
@@ -72,6 +75,8 @@ public class TrainerAdapter extends RecyclerView.Adapter<TrainerAdapter.ViewHold
             //displaying the popup
             popup.show();
         });
+        viewHolder.rating.setRating(trainer.review);
+        viewHolder.rating.setIsIndicator(true);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -81,16 +86,18 @@ public class TrainerAdapter extends RecyclerView.Adapter<TrainerAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-         final TextView name;
+         final TextView             name;
          final AppCompatImageButton more;
-         final CircleImageView image;
-         final TextView location;
+         final CircleImageView      image;
+         final TextView             location;
+         final RatingBar            rating;
         public ViewHolder(View view) {
             super(view);
-            name     = view.findViewById(R.id.trainerName);
-            more     = view.findViewById(R.id.trainerMore);
-            image    = view.findViewById(R.id.trainerImage);
-            location = view.findViewById(R.id.trainerLocation);
+            name     = view.findViewById(R.id.row_trainerName);
+            more     = view.findViewById(R.id.row_trainerMore);
+            image    = view.findViewById(R.id.row_trainerImage);
+            location = view.findViewById(R.id.row_trainerLocation);
+            rating   = view.findViewById(R.id.rating);
         }
 
     }

@@ -7,11 +7,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 import com.google.android.material.navigation.NavigationView;
 import com.medical.autism.R;
 import com.medical.autism.parent.ui.ParentTrainers;
@@ -46,6 +46,7 @@ public class ParentActivity extends AppCompatActivity {
                     case R.id.parent_speech_trainers: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new ParentTrainers());
                         break;
                     }
                     case R.id.parent_join_virtual_session: {
@@ -71,7 +72,9 @@ public class ParentActivity extends AppCompatActivity {
             }
         });
 
-        replaceFragment(new ParentTrainers());
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.parent_container, new ParentTrainers());
+        transaction.commit();
     }
 
     @Override
@@ -82,6 +85,13 @@ public class ParentActivity extends AppCompatActivity {
     }
 
     public void replaceFragment(Fragment fragment){
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.parent_container, fragment);
+        transaction.addToBackStack(fragment.getTag());
+        transaction.commit();
+    }
+    public void replaceFragmentAndClear(Fragment fragment){
+        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.parent_container, fragment);
         transaction.addToBackStack(fragment.getTag());

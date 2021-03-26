@@ -1,15 +1,14 @@
 package com.medical.autism.onboarding.model;
 
-public class Response {
+public class LoginResponse {
     public Boolean success;
     public String message;
     public LoginData data;
 
-    public Response(Boolean success, String message,LoginData data) {
+    public LoginResponse(Boolean success, String message, LoginData data) {
         this.success = success;
         this.message = message;
         this.data    = data;
     }
-
 }
 

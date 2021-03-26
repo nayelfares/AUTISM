@@ -2,7 +2,7 @@ package com.medical.autism.onboarding.vm;
 
 import android.content.Context;
 import com.medical.autism.onboarding.api.OnbordingApiManager;
-import com.medical.autism.onboarding.model.Response;
+import com.medical.autism.onboarding.model.LoginResponse;
 import com.medical.autism.onboarding.ui.LoginView;
 
 import io.reactivex.Observable;
@@ -22,19 +22,19 @@ public class LoginViewModel {
     }
 
     public void login(String email,String password){
-        Observable<Response> loginObservable =
+        Observable<LoginResponse> loginObservable =
                 OnbordingApiManager.onboardingService.login(email,password);
         loginObservable.subscribeOn(Schedulers.newThread()).
                 observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Response>(){
+                .subscribe(new Observer<LoginResponse>(){
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull Response response) {
-                            loginView.loginSuccess(response.data);
+                    public void onNext(@NonNull LoginResponse loginResponse) {
+                            loginView.loginSuccess(loginResponse.data);
                     }
 
                     @Override

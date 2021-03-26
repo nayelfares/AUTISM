@@ -20,31 +20,33 @@ public class Trainer {
     public String  avaliable_time;
     public String  experience_years;
     public String  certificate_number;
+    public Float   review;
 
     public Trainer(Integer id, String user_name, String email, String photo, String gender,
                    String type, String dob, String details, String phone, String first_name,
                    String last_name, String speciality, String collage, String language,
                    String clinic_address, String previous_clinics, String avaliable_time,
-                   String experience_years, String certificate_number
+                   String experience_years, String certificate_number,Float review
     ) {
-        this.id = id;
-        this.user_name = user_name;
-        this.email = email;
-        this.photo = photo;
-        this.gender = gender;
-        this.type = type;
-        this.dob = dob;
-        this.details = details;
-        this.phone = phone;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.speciality = speciality;
-        this.collage = collage;
-        this.language = language;
-        this.clinic_address = clinic_address;
-        this.previous_clinics = previous_clinics;
-        this.avaliable_time = avaliable_time;
-        this.experience_years = experience_years;
+        this.id                 = id;
+        this.user_name          = user_name;
+        this.email              = email;
+        this.photo              = photo;
+        this.gender             = gender;
+        this.type               = type;
+        this.dob                = dob;
+        this.details            = details;
+        this.phone              = phone;
+        this.first_name         = first_name;
+        this.last_name          = last_name;
+        this.speciality         = speciality;
+        this.collage            = collage;
+        this.language           = language;
+        this.clinic_address     = clinic_address;
+        this.previous_clinics   = previous_clinics;
+        this.avaliable_time     = avaliable_time;
+        this.experience_years   = experience_years;
         this.certificate_number = certificate_number;
+        this.review             = review;
     }
 }

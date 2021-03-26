@@ -1,23 +1,21 @@
 package com.medical.autism.onboarding.api;
 
 
-import com.medical.autism.onboarding.model.Response;
+import com.medical.autism.onboarding.model.LoginResponse;
 
 import io.reactivex.Observable;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface OnboardingService {
     @POST("user-login")
-    Observable<Response> login(
+    Observable<LoginResponse> login(
             @Query("email") String email,
             @Query("password") String password
     );
 
     @POST("user-register")
-    Observable<Response> register(
+    Observable<LoginResponse> register(
             @Query("first_name") String first_name,
             @Query("last_name") String last_name,
             @Query("user_name") String user_name,
