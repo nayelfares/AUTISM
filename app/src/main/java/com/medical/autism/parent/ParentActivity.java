@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.medical.autism.R;
-import com.medical.autism.parent.ui.ParentProfile;
+import com.medical.autism.parent.ui.ParentTrainers;
 
 public class ParentActivity extends AppCompatActivity {
 
@@ -71,7 +71,7 @@ public class ParentActivity extends AppCompatActivity {
             }
         });
 
-        replaceFragment(new ParentProfile());
+        replaceFragment(new ParentTrainers());
     }
 
     @Override

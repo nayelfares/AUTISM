@@ -52,7 +52,7 @@ public class LoginFragment extends BaseFragment implements LoginView {
         ParentActivity.id    = data.id;
         ParentActivity.token = "Bearer "+data.token;
         ParentActivity.type  = data.type;
-        requireActivity().startActivity(new Intent(requireContext(), TrainerActivity.class));
+        requireActivity().startActivity(new Intent(requireContext(), ParentActivity.class));
         requireActivity().finish();
     }
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_more"
+        android:background="@color/transparent"
+        android:id="@+id/trainerMore"/>
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="8dp"
+        android:background="@color/transparent"
+        android:src="@color/black"
+        android:id="@+id/trainerImage"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nayel Fares"
+        android:textSize="16sp"
+        android:id="@+id/trainerName"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/trainerImage"
+        android:layout_marginBottom="8dp"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nayel Fares"
+        android:textSize="16sp"
+        android:id="@+id/trainerLocation"
+        android:textStyle="italic"
+        android:drawableStart="@drawable/ic_gps"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/trainerName"
+        android:textColor="@color/black"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_below="@id/trainerLocation"
+        android:src="@drawable/dotted"
+        android:layerType="software" />
+</RelativeLayout>
