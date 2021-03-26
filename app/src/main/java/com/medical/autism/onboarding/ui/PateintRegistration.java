@@ -25,7 +25,7 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
     String email;
     String password;
     String mobileNumber;
-    String type = "pateint";
+    String type = "parent";
 
 
     EditText child_name;

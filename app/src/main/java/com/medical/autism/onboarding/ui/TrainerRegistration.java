@@ -23,7 +23,7 @@ public class TrainerRegistration extends BaseFragment implements RegistrationVie
     String email;
     String password;
     String mobileNumber;
-    String type = "parent";
+    String type = "trainer";
 
     EditText speciality;
     EditText collage;
