@@ -21,6 +21,9 @@
             android:theme="@style/Theme.AUTISM"/>
         <activity android:name=".trainer.TrainerActivity"
             android:theme="@style/Theme.AUTISM"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>

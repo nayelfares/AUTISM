@@ -88,6 +88,9 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
             }else
                 showMessage(requireContext().getResources().getString(R.string.approve_conditions_first));
         });
+
+
+
     }
 
 

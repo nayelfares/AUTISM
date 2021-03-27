@@ -1,26 +1,38 @@
 package com.medical.autism.parent.ui;
 
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.medical.Util;
 import com.medical.autism.BaseFragment;
 import com.medical.autism.R;
+import com.medical.autism.parent.ParentActivity;
 import com.medical.autism.parent.model.Parent;
 import com.medical.autism.parent.model.ParentProfileData;
 import com.medical.autism.parent.vm.AppointmentAdapter;
 import com.medical.autism.parent.vm.ParentProfileViewModel;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -85,6 +97,11 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
 
         loading();
         parentProfileViewModel.getProfile();
+
+        parentProfilePhoto.setOnClickListener(v->{
+            CropImage.activity().setGuidelines(CropImageView.Guidelines.ON).start(requireActivity());
+        });
+
     }
 
     @Override
@@ -134,11 +151,100 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
             notAvailableAppoitments.setVisibility(View.VISIBLE);
             parentProfileAppointments.setVisibility(View.GONE);
         }
+
+        parentBirthDate.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                if (motionEvent.getAction()==MotionEvent.ACTION_DOWN ){
+                    Dialog dialog =
+                            new Dialog(requireContext(), R.style.Theme_Design_BottomSheetDialog);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setCancelable(false);
+                    dialog.setContentView(R.layout.pick_date);
+                    dialog.findViewById(R.id.datePickerCancel).setOnClickListener(v->{
+                        dialog.dismiss();
+                    });
+                    dialog.findViewById(R.id.datePickerOk).setOnClickListener(v->{
+                        DatePicker datePicker= dialog.findViewById(R.id.datePicker);
+                        String pirthdateString=datePicker.getYear()+"-"+(datePicker.getMonth()+1)+"-"+datePicker.getDayOfMonth();
+                        parentBirthDate.setText(pirthdateString);
+                        dialog.dismiss();
+                    });
+
+                    Window window = dialog.getWindow();
+                            window.setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
+                    dialog.show();
+                }
+                return false;
+            }
+        });
+        parentProfileSubmit.setOnClickListener(v->{
+            loading();
+            parentProfileViewModel.updateProfile(
+                    parentProfileFirstname.getText().toString(),
+                    parentProfileLastname.getText().toString(),
+                    parentProfileUsername.getText().toString(),
+                    parentProfileEmail.getText().toString(),"",
+                    parentProfilePhone.getText().toString(),
+                    "Parent",
+                    "","","","","","",
+                    parentChildName.getText().toString(),
+                    parentChildAge.getText().toString(),
+                    "",
+                    parentProfileMarraigeStatus.getSelectedItem().toString(),
+                    parentProfileParentGender.getSelectedItem().toString(),
+                    parentChildNumber.getText().toString(),
+                    parentChildMainProblem.getText().toString()
+            );
+        });
     }
 
     @Override
     public void getProfileFailed(String message) {
         stopLoading();
         showMessage(message);
+    }
+
+    @Override
+    public void updatePhotoSuccess(String message, Uri uri) {
+        Glide.with(requireContext())
+                .load(uri)
+                .into(parentProfilePhoto);
+        stopLoading();
+        showMessage(message);
+    }
+
+    @Override
+    public void updatePhotoFailed(String message) {
+        stopLoading();
+        showMessage(message);
+    }
+
+    @Override
+    public void updateProfileSuccess(String message) {
+        stopLoading();
+        showMessage(message);
+        requireActivity().getSupportFragmentManager().popBackStack();
+        ((ParentActivity)requireActivity()).replaceFragmentAndClear( new ParentTrainers());
+    }
+
+    @Override
+    public void updateProfileFailed(String message) {
+        stopLoading();
+        showMessage(message);
+        Log.e("Error",message);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == Activity.RESULT_OK) {
+                Uri resultUri = result.getUri();
+                loading();
+                parentProfileViewModel.updatePhoto(resultUri);
+            }
+        }
     }
 }
