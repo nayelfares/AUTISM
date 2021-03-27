@@ -111,7 +111,7 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
         Glide.with(requireContext())
                 .load(Util.toUrl(parent.photo))
                 .into(parentProfilePhoto);
-        parentProfileUsername.setText(parent.user_temp_name);
+        parentProfileUsername.setText(parent.user_name);
         parentProfileFirstname.setText(parent.first_name);
         parentProfileLastname.setText(parent.last_name);
         parentProfileEmail.setText(parent.email);

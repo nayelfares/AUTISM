@@ -1,5 +1,7 @@
 package com.medical.autism.trainer;
 
+import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +16,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.navigation.NavigationView;
 import com.medical.autism.R;
+import com.medical.autism.parent.ui.ParentProfile;
 import com.medical.autism.trainer.ui.TrainerProfile;
 
 public class TrainerActivity extends AppCompatActivity {
@@ -56,6 +59,7 @@ public class TrainerActivity extends AppCompatActivity {
                     case R.id.trainer_profile: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new TrainerProfile());
                         break;
                     }
                     case R.id.trainer_chat: {
@@ -96,5 +100,20 @@ public class TrainerActivity extends AppCompatActivity {
         transaction.add(R.id.trainer_container, fragment);
         transaction.addToBackStack(fragment.getTag());
         transaction.commit();
+    }
+
+    public void replaceFragmentAndClear(Fragment fragment){
+        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.trainer_container, fragment);
+        transaction.addToBackStack(fragment.getTag());
+        transaction.commit();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.trainer_container);
+        fragment.onActivityResult(requestCode, resultCode, data);
     }
 }

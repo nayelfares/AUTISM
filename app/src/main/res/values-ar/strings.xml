@@ -48,4 +48,5 @@
     <string name="your_appointment">Your appoinmtent at :</string>
     <string name="submit_appointment">Submit appointment</string>
     <string name="scheduled_appointments">Your scheduled appointments</string>
+    <string name="submit">Submit</string>
 </resources>

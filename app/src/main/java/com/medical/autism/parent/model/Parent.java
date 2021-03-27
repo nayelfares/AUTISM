@@ -2,7 +2,7 @@ package com.medical.autism.parent.model;
 
 public class Parent {
     public Integer id;
-    public String  user_temp_name;
+    public String  user_name;
     public String  email;
     public String  photo;
     public String  gender;
@@ -22,13 +22,13 @@ public class Parent {
     public Appointment[] appointment;
 
     public Parent(
-            Integer id, String user_temp_name, String email, String photo, String gender, String type,
+            Integer id, String user_name, String email, String photo, String gender, String type,
             String dob, String details, String phone, String first_name, String last_name, String child_name,
             String child_age, String parent_job, String marriage_status, String parent_gender, String child_number,
             String child_main_problem, Appointment[] appointment
     ) {
         this.id = id;
-        this.user_temp_name = user_temp_name;
+        this.user_name = user_name;
         this.email = email;
         this.photo = photo;
         this.gender = gender;
