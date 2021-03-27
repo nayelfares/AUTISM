@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 import com.medical.autism.R;
+import com.medical.autism.parent.ui.ParentProfile;
 import com.medical.autism.parent.ui.ParentTrainers;
 
 public class ParentActivity extends AppCompatActivity {
@@ -57,6 +58,7 @@ public class ParentActivity extends AppCompatActivity {
                     case R.id.parent_profile: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new ParentProfile());
                         break;
                     }
                     case R.id.parent_chat: {

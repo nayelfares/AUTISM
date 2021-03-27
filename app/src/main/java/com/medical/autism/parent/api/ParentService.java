@@ -3,6 +3,7 @@ package com.medical.autism.parent.api;
 import com.medical.autism.GeneralResponse;
 import com.medical.autism.parent.model.GetTrainersResponse;
 import com.medical.autism.parent.model.PeriodsResponse;
+import com.medical.autism.parent.model.ProfileResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -38,5 +39,11 @@ public interface ParentService {
             @Query("schedule_id")Integer schedule_id,
             @Query("parent_id")Integer parent_id,
             @Query("time")String time
+    );
+
+    @GET("user-profile_get")
+    Observable<ProfileResponse> getAppointments(
+            @Header("Authorization")String token,
+            @Query("id") Integer id
     );
 }

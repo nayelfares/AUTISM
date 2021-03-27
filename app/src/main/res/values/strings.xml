@@ -23,7 +23,7 @@
     <string name="i_have_read_and_agree_the_term_conditions"><![CDATA[I have read and agree the Term & Conditions]]></string>
     <string name="child_name">Child name</string>
     <string name="chile_age">Child age</string>
-    <string name="patient_gender">Patient gender</string>
+    <string name="patient_gender">Parent gender</string>
     <string name="parent_job">Parent job</string>
     <string name="child_main_problem">Child main problem</string>
     <string name="child_number">Child number</string>

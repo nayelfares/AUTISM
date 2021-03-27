@@ -181,6 +181,7 @@
         android:text="@string/next"
         android:id="@+id/generalRegisterNext"
         android:textSize="16sp"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:layout_marginEnd="96dp"
