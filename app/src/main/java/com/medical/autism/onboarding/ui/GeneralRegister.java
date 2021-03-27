@@ -23,7 +23,7 @@ public class GeneralRegister extends BaseFragment {
     EditText password;
     EditText mobileNumber;
     RadioButton trainer;
-    RadioButton pateint;
+    RadioButton parent;
     Button next;
     public GeneralRegister() { super(R.layout.fragment_general_register);}
 
@@ -37,7 +37,7 @@ public class GeneralRegister extends BaseFragment {
         password     = requireActivity().findViewById(R.id.generalRegisterPassword);
         mobileNumber = requireActivity().findViewById(R.id.generalRegisterMobileNumber);
         trainer      = requireActivity().findViewById(R.id.generalRegisterTrainer);
-        pateint      = requireActivity().findViewById(R.id.generalRegisterPatient);
+        parent = requireActivity().findViewById(R.id.generalRegisterParent);
         next         = requireActivity().findViewById(R.id.generalRegisterNext);
         next.setOnClickListener(v ->{
             if (trainer.isChecked()) {
@@ -50,8 +50,8 @@ public class GeneralRegister extends BaseFragment {
                         mobileNumber.getText().toString()
                 ));
             }
-            if (pateint.isChecked()) {
-                ((OnboardingProcess) requireActivity()).replaceFragment(new PateintRegistration(
+            if (parent.isChecked()) {
+                ((OnboardingProcess) requireActivity()).replaceFragment(new ParentRegistration(
                         firstname.getText().toString(),
                         lastname.getText().toString(),
                         username.getText().toString(),

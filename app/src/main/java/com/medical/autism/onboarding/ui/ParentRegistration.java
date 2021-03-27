@@ -15,9 +15,7 @@ import com.medical.autism.BaseFragment;
 import com.medical.autism.R;
 import com.medical.autism.onboarding.vm.RegistrationViewModel;
 
-import retrofit2.http.Query;
-
-public class PateintRegistration extends BaseFragment implements RegistrationView {
+public class ParentRegistration extends BaseFragment implements RegistrationView {
     RegistrationViewModel registrationViewModel;
     String firstname;
     String lastname;
@@ -38,8 +36,8 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
     CheckBox conditions;
     Button register;
 
-    public PateintRegistration(String firstname,String lastname,String username,String email,String password,String mobileNumber) {
-        super(R.layout.fragment_pateint_registration);
+    public ParentRegistration(String firstname, String lastname, String username, String email, String password, String mobileNumber) {
+        super(R.layout.fragment_parent_registration);
         this.firstname    = firstname;
         this.lastname     = lastname;
         this.username     = username;
@@ -52,15 +50,15 @@ public class PateintRegistration extends BaseFragment implements RegistrationVie
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         registrationViewModel = new RegistrationViewModel(this,requireContext());
-        child_name          = requireActivity().findViewById(R.id.pateintRegistrationChildName);
-        child_age            = requireActivity().findViewById(R.id.pateintRegistrationChildAge);
-        parent_job          = requireActivity().findViewById(R.id.pateintRegistrationParentJob);
-        marriage_status          = requireActivity().findViewById(R.id.pateintRegistrationMarriageStatus);
-        parent_gender            = requireActivity().findViewById(R.id.pateintRegistrationPateintGender);
-        child_number            = requireActivity().findViewById(R.id.pateintRegistrationChildNumber);
-        child_main_problem            = requireActivity().findViewById(R.id.pateintRegistrationMainProblem);
-        conditions          = requireActivity().findViewById(R.id.trainerRegisterConditions);
-        register            = requireActivity().findViewById(R.id.trainerRegister);
+        child_name          = requireActivity().findViewById(R.id.parentRegistrationChildName);
+        child_age            = requireActivity().findViewById(R.id.parentRegistrationChildAge);
+        parent_job          = requireActivity().findViewById(R.id.parentRegistrationParentJob);
+        marriage_status          = requireActivity().findViewById(R.id.parentRegistrationMarriageStatus);
+        parent_gender            = requireActivity().findViewById(R.id.parentRegistrationParentGender);
+        child_number            = requireActivity().findViewById(R.id.parenttRegistrationChildNumber);
+        child_main_problem            = requireActivity().findViewById(R.id.parentRegistrationMainProblem);
+        conditions          = requireActivity().findViewById(R.id.parentRegisterConditions);
+        register            = requireActivity().findViewById(R.id.parentRegister);
 
 
         String[] items = new String[]{"Married","widow","Divorced"};

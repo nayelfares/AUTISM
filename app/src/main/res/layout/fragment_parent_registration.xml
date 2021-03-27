@@ -35,7 +35,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationChildName"/>
+        android:id="@+id/parentRegistrationChildName"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
@@ -57,7 +57,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationChildAge"/>
+        android:id="@+id/parentRegistrationChildAge"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
@@ -79,7 +79,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationParentJob"/>
+        android:id="@+id/parentRegistrationParentJob"/>
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -98,12 +98,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationMarriageStatus"/>
+        android:id="@+id/parentRegistrationMarriageStatus"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/patient_gender"
+        android:text="@string/parent_gender"
         android:textColor="@color/black"
         android:textAlignment="viewStart"
         android:textSize="18sp"
@@ -119,7 +119,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationPateintGender"/>
+        android:id="@+id/parentRegistrationParentGender"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
@@ -141,7 +141,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationChildNumber"/>
+        android:id="@+id/parenttRegistrationChildNumber"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
@@ -164,21 +164,21 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/pateintRegistrationMainProblem"/>
+        android:id="@+id/parentRegistrationMainProblem"/>
 
     <CheckBox
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:id="@+id/trainerRegisterConditions"
+        android:id="@+id/parentRegisterConditions"
         android:text="@string/i_have_read_and_agree_the_term_conditions"/>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_submit_button"
         android:text="@string/register"
-        android:id="@+id/trainerRegister"
+        android:id="@+id/parentRegister"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:textStyle="bold"

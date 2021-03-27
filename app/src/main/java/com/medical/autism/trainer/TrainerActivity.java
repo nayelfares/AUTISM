@@ -43,7 +43,7 @@ public class TrainerActivity extends AppCompatActivity {
                     menu.getItem(i).setChecked(false);
                 }
                 switch(item.getItemId()) {
-                    case R.id.trainer_Patients: {
+                    case R.id.trainer_parent: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
                         break;
