@@ -32,5 +32,11 @@ public interface ParentService {
             @Query("id") Integer trainerId,
             @Query("day") String day
     );
-
+    @POST("appointment")
+    Observable<GeneralResponse> getAppointment(
+            @Header("Authorization")String token,
+            @Query("schedule_id")Integer schedule_id,
+            @Query("trainer_id")Integer trainerID,
+            @Query("time")String time
+    );
 }

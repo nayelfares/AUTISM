@@ -27,11 +27,50 @@
         android:textStyle="bold"
         android:text="@string/choose_شppropriate_time" />
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_height="300dp"
         android:id="@+id/periodsRecyclerView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
         android:layout_gravity="center"/>
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:id="@+id/appointmentContainer"
+        android:visibility="gone"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="@string/your_appointment"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:id="@+id/appointmentDateTime"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:background="@drawable/ic_submit_button"
+        android:text="@string/submit_appointment"
+        android:id="@+id/submitAppointment"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginEnd="96dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        />
 </LinearLayout>

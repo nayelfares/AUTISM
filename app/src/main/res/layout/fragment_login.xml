@@ -63,6 +63,7 @@
         android:background="@drawable/ic_submit_button"
         android:text="@string/login"
         android:id="@+id/login"
+        android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:textStyle="bold"

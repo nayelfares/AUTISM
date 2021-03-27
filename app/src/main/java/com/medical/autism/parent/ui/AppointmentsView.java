@@ -6,4 +6,8 @@ public interface AppointmentsView {
     void getPeriodsSuccess(Period[] data);
 
     void getPeriodsFailed(String message);
+
+    void getAppointmentSuccess(String message);
+
+    void getAppointmentFailed(String message);
 }

@@ -44,4 +44,7 @@
     <string name="ok">Ok</string>
     <string name="choose_شppropriate_time">Choose Appropriate Time</string>
     <string name="no_available_appointments">No Available Appointments</string>
+    <string name="not_available">Not available</string>
+    <string name="your_appointment">Your appoinmtent at :</string>
+    <string name="submit_appointment">Submit appointment</string>
 </resources>

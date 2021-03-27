@@ -2,6 +2,7 @@ package com.medical.autism.parent.vm;
 
 import android.content.Context;
 
+import com.medical.autism.GeneralResponse;
 import com.medical.autism.parent.ParentActivity;
 import com.medical.autism.parent.api.ParentApiManager;
 import com.medical.autism.parent.model.GetTrainersResponse;
@@ -46,6 +47,37 @@ public class AppointmentsViewModel {
                     @Override
                     public void onError(@NonNull Throwable e) {
                         appointmentsView.getPeriodsFailed(e.getMessage());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void getAppointment(Integer schedule_id, Integer trainerID, String time) {
+        Observable<GeneralResponse> loginObservable =
+                ParentApiManager.parentService.getAppointment(ParentActivity.token,schedule_id,trainerID,time);
+        loginObservable.subscribeOn(Schedulers.newThread()).
+                observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<GeneralResponse>(){
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull GeneralResponse response) {
+                        if (response.success )
+                            appointmentsView.getAppointmentSuccess(response.message);
+                        else
+                            appointmentsView.getAppointmentFailed(response.message);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        appointmentsView.getAppointmentFailed(e.getMessage());
                     }
 
                     @Override

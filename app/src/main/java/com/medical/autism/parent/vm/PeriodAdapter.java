@@ -11,15 +11,16 @@ import android.widget.Toast;
 import androidx.recyclerview.widget.RecyclerView;
 import com.medical.autism.R;
 import com.medical.autism.parent.model.Period;
+import com.medical.autism.parent.ui.Appointments;
 
 public class PeriodAdapter extends RecyclerView.Adapter<PeriodAdapter.ViewHolder> {
 
     private final Period[] periods;
-    private final Context   context;
+    private final Appointments appointments;
 
-    public PeriodAdapter(Context context, Period[] periods) {
-        this.periods = periods;
-        this.context  = context;
+    public PeriodAdapter(Appointments appointments, Period[] periods) {
+        this.periods       = periods;
+        this.appointments  = appointments;
     }
 
     // Create new views (invoked by the layout manager)
@@ -40,9 +41,9 @@ public class PeriodAdapter extends RecyclerView.Adapter<PeriodAdapter.ViewHolder
         viewHolder.startTime.setText(period.time);
         viewHolder.endTime.setText(period.end_time);
         if (period.selected){
-            viewHolder.itemView.setBackground(context.getResources().getDrawable(R.drawable.ic_border_selected));
+            viewHolder.itemView.setBackground(appointments.getResources().getDrawable(R.drawable.ic_border_selected));
         }else{
-            viewHolder.itemView.setBackground(context.getResources().getDrawable(R.drawable.ic_border));
+            viewHolder.itemView.setBackground(appointments.getResources().getDrawable(R.drawable.ic_border));
         }
         viewHolder.itemView.setOnClickListener(v->{
             if (!period.booked) {
@@ -54,10 +55,14 @@ public class PeriodAdapter extends RecyclerView.Adapter<PeriodAdapter.ViewHolder
                 }
                 periods[position].selected = true;
                 notifyItemChanged(position);
-            }else{
-                Toast.makeText(context,"this period already booked",Toast.LENGTH_SHORT).show();
+                appointments.selectTime(period.time,period.schedule_id);
             }
         });
+        if (period.booked) {
+            viewHolder.notAvailable.setVisibility(View.VISIBLE);
+        }else{
+            viewHolder.notAvailable.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -68,10 +73,12 @@ public class PeriodAdapter extends RecyclerView.Adapter<PeriodAdapter.ViewHolder
     public static class ViewHolder extends RecyclerView.ViewHolder {
          final TextView             startTime;
          final TextView             endTime;
+        final TextView              notAvailable;
         public ViewHolder(View view) {
             super(view);
             startTime     = view.findViewById(R.id.periodStartTime);
             endTime       = view.findViewById(R.id.periodEndTime);
+            notAvailable  = view.findViewById(R.id.notAvailable);
         }
 
     }

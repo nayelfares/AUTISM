@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="50dp"
     android:orientation="horizontal"
     android:layout_marginBottom="8dp"
+    android:background="@drawable/ic_border">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/not_available"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:visibility="visible"
+        android:textStyle="italic|bold"
+        android:rotationY="10"
+        android:rotationX="-30"
+        android:id="@+id/notAvailable"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="horizontal"
     android:background="@drawable/ic_border">
     <TextView
         android:layout_width="0dp"
@@ -30,5 +46,5 @@
         android:gravity="center"
         android:textColor="@color/purple_700"
         android:textSize="16sp"/>
-
 </LinearLayout>
+</RelativeLayout>
