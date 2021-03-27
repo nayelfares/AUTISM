@@ -20,6 +20,7 @@ public class TrainerActivity extends AppCompatActivity {
 
     public static  String  token = "";
     public static  Integer id    = 0 ;
+    public static String type    = "trainer";
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle toggle;

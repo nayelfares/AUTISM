@@ -48,11 +48,18 @@ public class LoginFragment extends BaseFragment implements LoginView {
 
     @Override
     public void loginSuccess(LoginData data) {
+        if (data.type.equals("parent")) {
+            ParentActivity.id = data.id;
+            ParentActivity.token = "Bearer " + data.token;
+            ParentActivity.type = data.type;
+            requireActivity().startActivity(new Intent(requireContext(), ParentActivity.class));
+        }else{
+            TrainerActivity.id = data.id;
+            TrainerActivity.token = "Bearer " + data.token;
+            TrainerActivity.type = data.type;
+            requireActivity().startActivity(new Intent(requireContext(), TrainerActivity.class));
+        }
         stopLoading();
-        ParentActivity.id    = data.id;
-        ParentActivity.token = "Bearer "+data.token;
-        ParentActivity.type  = data.type;
-        requireActivity().startActivity(new Intent(requireContext(), ParentActivity.class));
         requireActivity().finish();
     }
 
