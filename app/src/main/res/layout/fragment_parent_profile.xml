@@ -391,6 +391,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:id="@+id/parentProfileAppointments"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="vertical"/>
         <androidx.appcompat.widget.AppCompatButton
@@ -398,7 +399,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ic_submit_button"
             android:text="@string/next"
-            android:id="@+id/generalRegisterNext"
+            android:id="@+id/parentProfileSubmit"
             android:textSize="16sp"
             android:gravity="center"
             android:textColor="@color/white"

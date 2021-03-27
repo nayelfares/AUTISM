@@ -74,9 +74,8 @@ public class ParentActivity extends AppCompatActivity {
             }
         });
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.parent_container, new ParentTrainers());
-        transaction.commit();
+        replaceFragmentAndClear( new ParentTrainers());
+
     }
 
     @Override

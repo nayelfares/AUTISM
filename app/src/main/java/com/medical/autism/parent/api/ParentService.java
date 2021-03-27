@@ -42,7 +42,7 @@ public interface ParentService {
     );
 
     @GET("user-profile_get")
-    Observable<ProfileResponse> getAppointments(
+    Observable<ProfileResponse> getProfile(
             @Header("Authorization")String token,
             @Query("id") Integer id
     );
