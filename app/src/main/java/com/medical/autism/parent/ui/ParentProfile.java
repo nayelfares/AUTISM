@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.medical.autism.BaseFragment;
 import com.medical.autism.R;
 import com.medical.autism.parent.model.Parent;
 import com.medical.autism.parent.model.ParentProfileData;
+import com.medical.autism.parent.vm.AppointmentAdapter;
 import com.medical.autism.parent.vm.ParentProfileViewModel;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -45,7 +47,7 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
     EditText        parentChildMainProblem;
     RecyclerView    parentProfileAppointments;
     Button          parentProfileSubmit;
-
+    TextView        notAvailableAppoitments;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
         parentProfileGender                 = requireActivity().findViewById(R.id.parentProfileGender);
         parentChildNumber                   = requireActivity().findViewById(R.id.parentChildNumber);
         parentChildMainProblem              = requireActivity().findViewById(R.id.parentChildMainProblem);
+        notAvailableAppoitments             = requireActivity().findViewById(R.id.notAvailableAppoitments);
         parentProfileAppointments           = requireActivity().findViewById(R.id.parentProfileAppointments);
         parentProfileSubmit                 = requireActivity().findViewById(R.id.parentProfileSubmit);
 
@@ -109,6 +112,27 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
                 parentProfileParentGender.setSelection(0);
             if (parent.parent_gender.equals("Female"))
                 parentProfileParentGender.setSelection(1);
+        }
+        parentBirthDate.setText(parent.dob);
+        parentDetails.setText(parent.details);
+        parentChildName.setText(parent.child_name);
+        parentChildAge.setText(parent.child_age);
+        parentProfilePhone.setText(parent.phone);
+        if (parent.gender!=null) {
+            if (parent.gender.equals("Male"))
+                parentProfileGender.setSelection(0);
+            if (parent.gender.equals("Female"))
+                parentProfileGender.setSelection(1);
+        }
+        parentChildNumber.setText(parent.child_number);
+        parentChildMainProblem.setText(parent.child_main_problem);
+        if (data.appointment.size()>0) {
+            parentProfileAppointments.setAdapter(new AppointmentAdapter(this, data.appointment));
+            notAvailableAppoitments.setVisibility(View.GONE);
+            parentProfileAppointments.setVisibility(View.VISIBLE);
+        }else{
+            notAvailableAppoitments.setVisibility(View.VISIBLE);
+            parentProfileAppointments.setVisibility(View.GONE);
         }
     }
 

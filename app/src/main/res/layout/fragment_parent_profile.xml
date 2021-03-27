@@ -13,14 +13,40 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_gravity="center"
+            android:layout_height="100dp">
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:background="@color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:civ_border_color="@color/black"
                 android:src="@color/black"
+                android:layout_centerInParent="true"
+                app:civ_border_width="2dp"
                 android:id="@+id/parentProfilePhoto"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="16dp"
+                app:civ_border_color="@color/black"
+                android:src="@color/white"
+                android:id="@+id/cameraContainer"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp"
+                app:civ_border_width="2dp"/>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:id="@+id/camera"
+                android:src="@drawable/ic_high_contrast_camera_photo"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="21dp"/>
+        </RelativeLayout>
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="5dp"
@@ -388,6 +414,31 @@
                     android:gravity="start"
                     android:textStyle="normal"/>
             </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:src="@drawable/dotted"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:layerType="software" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/scheduled_appointments"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:text="@string/no_available_appointments"
+            android:textColor="@color/grey"
+            android:textSize="18sp"
+            android:id="@+id/notAvailableAppoitments"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="200dp"

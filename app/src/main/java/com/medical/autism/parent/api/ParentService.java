@@ -6,9 +6,11 @@ import com.medical.autism.parent.model.PeriodsResponse;
 import com.medical.autism.parent.model.ProfileResponse;
 
 import io.reactivex.Observable;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ParentService {
@@ -45,5 +47,11 @@ public interface ParentService {
     Observable<ProfileResponse> getProfile(
             @Header("Authorization")String token,
             @Query("id") Integer id
+    );
+
+    @DELETE("appointment/{id}")
+    Observable<GeneralResponse> deleteAppointment(
+            @Header("Authorization")String token,
+            @Path("id") Integer id
     );
 }
