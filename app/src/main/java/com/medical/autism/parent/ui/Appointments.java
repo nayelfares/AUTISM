@@ -46,7 +46,7 @@ public class Appointments extends BaseFragment implements AppointmentsView {
         appointmentsViewModel.getPeriods(trainerID,day);
         submitAppointment.setOnClickListener(v->{
             loading();
-            appointmentsViewModel.getAppointment(schedule_id,trainerID,time);
+            appointmentsViewModel.getAppointment(schedule_id,time);
         });
     }
 

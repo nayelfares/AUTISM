@@ -36,7 +36,7 @@ public interface ParentService {
     Observable<GeneralResponse> getAppointment(
             @Header("Authorization")String token,
             @Query("schedule_id")Integer schedule_id,
-            @Query("trainer_id")Integer trainerID,
+            @Query("parent_id")Integer parent_id,
             @Query("time")String time
     );
 }

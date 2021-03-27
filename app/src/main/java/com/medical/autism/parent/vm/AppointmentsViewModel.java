@@ -56,9 +56,9 @@ public class AppointmentsViewModel {
                 });
     }
 
-    public void getAppointment(Integer schedule_id, Integer trainerID, String time) {
+    public void getAppointment(Integer schedule_id, String time) {
         Observable<GeneralResponse> loginObservable =
-                ParentApiManager.parentService.getAppointment(ParentActivity.token,schedule_id,trainerID,time);
+                ParentApiManager.parentService.getAppointment(ParentActivity.token,schedule_id,ParentActivity.id,time);
         loginObservable.subscribeOn(Schedulers.newThread()).
                 observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<GeneralResponse>(){
