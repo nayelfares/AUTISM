@@ -3,6 +3,7 @@ package com.medical.autism.trainer.api;
 import com.medical.autism.GeneralResponse;
 import com.medical.autism.trainer.model.ProfileResponse;
 import com.medical.autism.trainer.model.ScheduleResponse;
+import com.medical.autism.trainer.model.TrainerAppointmentResponse;
 
 
 import io.reactivex.Observable;
@@ -22,12 +23,6 @@ public interface TrainerService {
     Observable<ProfileResponse> getProfile(
             @Header("Authorization")String token,
             @Query("id") Integer id
-    );
-
-    @DELETE("appointment/{id}")
-    Observable<GeneralResponse> deleteAppointment(
-            @Header("Authorization")String token,
-            @Path("id") Integer id
     );
 
     @POST("change_photo")
@@ -78,5 +73,18 @@ public interface TrainerService {
             @Query("date")String date,
             @Query("from")String from,
             @Query("to")String to
+    );
+
+    @GET("appointment_trainer")
+    Observable<TrainerAppointmentResponse> getAppointments(
+            @Header("Authorization")String token,
+            @Query("trainer_id") Integer trainer_id,
+            @Query("day")String day
+    );
+
+    @DELETE("appointment/{id}")
+    Observable<GeneralResponse> deleteAppointment(
+            @Header("Authorization")String token,
+            @Path("id") Integer id
     );
 }

@@ -18,6 +18,8 @@ import com.medical.autism.R;
 import com.medical.autism.parent.ui.ParentProfile;
 import com.medical.autism.parent.ui.ParentTrainers;
 
+import java.util.List;
+
 public class ParentActivity extends AppCompatActivity {
 
     public static  String  token = "";
@@ -75,7 +77,7 @@ public class ParentActivity extends AppCompatActivity {
             }
         });
 
-        replaceFragmentAndClear( new ParentTrainers());
+        replaceFragment( new ParentTrainers());
 
     }
 
@@ -105,5 +107,15 @@ public class ParentActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.parent_container);
         fragment.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    public void onBackPressed() {
+        List<Fragment> fragments=getSupportFragmentManager().getFragments();
+        if (fragments.size()<=2){
+            finish();
+        }else {
+            super.onBackPressed();
+        }
     }
 }

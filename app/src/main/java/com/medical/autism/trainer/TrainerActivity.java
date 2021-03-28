@@ -120,4 +120,13 @@ public class TrainerActivity extends AppCompatActivity {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.trainer_container);
         fragment.onActivityResult(requestCode, resultCode, data);
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        int fragments=getSupportFragmentManager().getFragments().size();
+        if (fragments<=1){
+            finish();
+        }
+    }
 }

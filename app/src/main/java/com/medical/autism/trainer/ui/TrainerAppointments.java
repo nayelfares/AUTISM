@@ -17,7 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.medical.autism.BaseFragment;
 import com.medical.autism.R;
+import com.medical.autism.trainer.model.TrainerAppointment;
+import com.medical.autism.trainer.vm.TrainerAppointmentAdapter;
 import com.medical.autism.trainer.vm.TrainerAppointmentsViewModel;
+
+import java.util.ArrayList;
 
 public class TrainerAppointments extends BaseFragment implements TrainerAppointmentsView {
     TrainerAppointmentsViewModel trainerAppointmentsViewModel;
@@ -63,6 +67,29 @@ public class TrainerAppointments extends BaseFragment implements TrainerAppointm
                 return false;
             }
         });
-        trainerAppointmentsViewModel.getAppointments();
+        showAppointments.setOnClickListener(v->{
+            if (chossedDay.getText().toString().equals("")){
+                showMessage("choose day first");
+            }else {
+                loading();
+                trainerAppointmentsViewModel.getAppointments(chossedDay.getText().toString());
+            }
+        });
+
+    }
+
+    @Override
+    public void getAppointmentsSuccess(ArrayList<TrainerAppointment> data) {
+        if (data.size()>0)
+            trainerAppointmentsContent.setAdapter(new TrainerAppointmentAdapter(this,data));
+        else
+            showMessage("no appointments found in this day");
+        stopLoading();
+    }
+
+    @Override
+    public void getAppointmentsFailed(String message) {
+        stopLoading();
+        showMessage(message);
     }
 }
