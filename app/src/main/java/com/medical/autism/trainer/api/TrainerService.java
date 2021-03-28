@@ -4,6 +4,7 @@ import com.medical.autism.GeneralResponse;
 import com.medical.autism.trainer.model.ProfileResponse;
 import com.medical.autism.trainer.model.ScheduleResponse;
 import com.medical.autism.trainer.model.TrainerAppointmentResponse;
+import com.medical.autism.trainer.model.TrainerPatientResponse;
 
 
 import io.reactivex.Observable;
@@ -86,5 +87,19 @@ public interface TrainerService {
     Observable<GeneralResponse> deleteAppointment(
             @Header("Authorization")String token,
             @Path("id") Integer id
+    );
+
+    @GET("parent")
+    Observable<TrainerPatientResponse> getPatients(
+            @Header("Authorization")String token,
+            @Query("trainer_id") Integer trainer_id
+    );
+
+
+    @POST("update_main_problem")
+    Observable<GeneralResponse> updateMainProblem(
+            @Header("Authorization")String token,
+            @Query("id") String id,
+            @Query("child_main_problem")String child_main_problem
     );
 }

@@ -19,6 +19,7 @@ import com.medical.autism.R;
 import com.medical.autism.parent.ui.ParentProfile;
 import com.medical.autism.trainer.ui.Scheduales;
 import com.medical.autism.trainer.ui.TrainerAppointments;
+import com.medical.autism.trainer.ui.TrainerPatients;
 import com.medical.autism.trainer.ui.TrainerProfile;
 
 public class TrainerActivity extends AppCompatActivity {
@@ -51,13 +52,14 @@ public class TrainerActivity extends AppCompatActivity {
                     case R.id.trainer_parent: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new TrainerPatients());
                         break;
                     }
-                    case R.id.trainer_join_virtual_session: {
-                        item.setChecked(true);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    }
+//                    case R.id.trainer_join_virtual_session: {
+//                        item.setChecked(true);
+//                        mDrawerLayout.closeDrawers();
+//                        break;
+//                    }
                     case R.id.trainer_profile: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
@@ -123,10 +125,10 @@ public class TrainerActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         int fragments=getSupportFragmentManager().getFragments().size();
-        if (fragments<=1){
+        if (fragments<=1)
             finish();
-        }
+        else
+            super.onBackPressed();
     }
 }

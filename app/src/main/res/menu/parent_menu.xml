@@ -3,9 +3,9 @@
     <item android:id="@+id/parent_speech_trainers"
         android:icon="@drawable/ic_speech"
         android:title="Speech Trainers"/>
-    <item android:id="@+id/parent_join_virtual_session"
-        android:icon="@drawable/ic_jion_virtual_session"
-        android:title="Join Virtual Session"/>
+<!--    <item android:id="@+id/parent_join_virtual_session"-->
+<!--        android:icon="@drawable/ic_jion_virtual_session"-->
+<!--        android:title="Join Virtual Session"/>-->
     <item android:id="@+id/parent_profile"
         android:icon="@drawable/ic_profile"
         android:title="Profile"/>

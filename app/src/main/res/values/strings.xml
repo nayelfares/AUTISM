@@ -64,4 +64,9 @@
     <string name="show">Show</string>
     <string name="parent_name">Parent name</string>
     <string name="date_time">Appointment time</string>
+    <string name="no_available_patients">No available patients</string>
+    <string name="your_patients">Your patients</string>
+    <string name="time">Time</string>
+    <string name="day">Day</string>
+    <string name="save">Save</string>
 </resources>

@@ -7,6 +7,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.annotation.SuppressLint;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ public class ParentActivity extends AppCompatActivity {
         toggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         parentNavView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Menu menu = parentNavView.getMenu();
@@ -53,11 +55,11 @@ public class ParentActivity extends AppCompatActivity {
                         replaceFragmentAndClear(new ParentTrainers());
                         break;
                     }
-                    case R.id.parent_join_virtual_session: {
-                        item.setChecked(true);
-                        mDrawerLayout.closeDrawers();
-                        break;
-                    }
+//                    case R.id.parent_join_virtual_session: {
+//                        item.setChecked(true);
+//                        mDrawerLayout.closeDrawers();
+//                        break;
+//                    }
                     case R.id.parent_profile: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
