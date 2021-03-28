@@ -81,4 +81,13 @@ public interface TrainerService {
             @Header("Authorization")String token,
             @Query("id") Integer id
     );
+
+    @POST("schedule")
+    Observable<GeneralResponse> addSchedule(
+            @Header("Authorization")String token,
+            @Query("id") Integer id,
+            @Query("date")String date,
+            @Query("from")String from,
+            @Query("to")String to
+    );
 }

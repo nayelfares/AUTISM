@@ -35,7 +35,7 @@ public class Scheduales extends BaseFragment implements SchedualesView {
         loading();
         schedualesViewModel.getSchedules();
         addSchedule.setOnClickListener(v->{
-            ((TrainerActivity) requireActivity()).replaceFragment(new AddSchedule());
+            ((TrainerActivity) requireActivity()).replaceFragment(new AddSchedule(this));
         });
     }
 
@@ -49,5 +49,10 @@ public class Scheduales extends BaseFragment implements SchedualesView {
     public void getSchedulesFailed(String message) {
         stopLoading();
         showMessage(message);
+    }
+
+    public void reload(){
+        loading();
+        schedualesViewModel.getSchedules();
     }
 }
