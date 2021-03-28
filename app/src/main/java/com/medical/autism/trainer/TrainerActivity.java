@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.medical.autism.R;
 import com.medical.autism.parent.ui.ParentProfile;
 import com.medical.autism.trainer.ui.Scheduales;
+import com.medical.autism.trainer.ui.TrainerAppointments;
 import com.medical.autism.trainer.ui.TrainerProfile;
 
 public class TrainerActivity extends AppCompatActivity {
@@ -71,6 +72,7 @@ public class TrainerActivity extends AppCompatActivity {
                     case R.id.trainer_appointments: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new TrainerAppointments());
                         break;
                     }
                     case R.id.trainer_schedualed: {
@@ -87,7 +89,7 @@ public class TrainerActivity extends AppCompatActivity {
             }
         });
 
-        replaceFragment(new TrainerProfile());
+        replaceFragment(new TrainerAppointments());
     }
 
     @Override

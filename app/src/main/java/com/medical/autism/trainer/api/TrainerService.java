@@ -18,17 +18,6 @@ import retrofit2.http.Query;
 
 public interface TrainerService {
 
-
-
-
-    @POST("appointment")
-    Observable<GeneralResponse> getAppointment(
-            @Header("Authorization")String token,
-            @Query("schedule_id")Integer schedule_id,
-            @Query("parent_id")Integer parent_id,
-            @Query("time")String time
-    );
-
     @GET("user-profile_get")
     Observable<ProfileResponse> getProfile(
             @Header("Authorization")String token,
