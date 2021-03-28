@@ -50,4 +50,9 @@
     <string name="scheduled_appointments">Your scheduled appointments</string>
     <string name="submit">Submit</string>
     <string name="your_schedual">Your Schedule</string>
+    <string name="add_schedule">Add Schedule</string>
+    <string name="available_day">Available Day</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_time">End Time</string>
+    <string name="create_schedule">Create Schedule</string>
 </resources>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.medical.autism.BaseFragment;
 import com.medical.autism.R;
+import com.medical.autism.trainer.TrainerActivity;
 import com.medical.autism.trainer.model.Schedule;
 import com.medical.autism.trainer.vm.SchedualesViewModel;
 import com.medical.autism.trainer.vm.ScheduleAdapter;
@@ -33,6 +34,9 @@ public class Scheduales extends BaseFragment implements SchedualesView {
         addSchedule          = requireActivity().findViewById(R.id.addSchedule);
         loading();
         schedualesViewModel.getSchedules();
+        addSchedule.setOnClickListener(v->{
+            ((TrainerActivity) requireActivity()).replaceFragment(new AddSchedule());
+        });
     }
 
     @Override

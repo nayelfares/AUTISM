@@ -161,6 +161,7 @@
         android:background="@drawable/ic_submit_button"
         android:text="@string/register"
         android:id="@+id/trainerRegister"
+        android:gravity="center"
         android:textSize="16sp"
         android:textColor="@color/white"
         android:textStyle="bold"
