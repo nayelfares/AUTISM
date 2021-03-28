@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/schedualeRowDay"
+        android:text="Dr.Jasem Ali"
+        android:gravity="start|center"
+        android:layout_marginStart="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:id="@+id/schedualeRowTime"
+        android:text="10:00:00 - 11:00:00"
+        android:gravity="start|center"
+        android:textSize="14sp"
+        android:textStyle="bold"/>
+    <ImageButton
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="0.2"
+        android:id="@+id/aschedualeRowCancel"
+        android:background="@color/transparent"
+        android:src="@drawable/ic_close"
+        android:gravity="start|center"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
+</LinearLayout>

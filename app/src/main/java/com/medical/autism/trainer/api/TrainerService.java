@@ -2,6 +2,7 @@ package com.medical.autism.trainer.api;
 
 import com.medical.autism.GeneralResponse;
 import com.medical.autism.trainer.model.ProfileResponse;
+import com.medical.autism.trainer.model.ScheduleResponse;
 
 
 import io.reactivex.Observable;
@@ -18,14 +19,6 @@ import retrofit2.http.Query;
 public interface TrainerService {
 
 
-
-    @POST("review")
-    Observable<GeneralResponse> review(
-            @Header("Authorization")String token,
-            @Query("trainer_id") String trainer_id,
-            @Query("parent_id") String parent_id,
-            @Query("value") String value
-    );
 
 
     @POST("appointment")
@@ -80,5 +73,12 @@ public interface TrainerService {
             @Query("parent_gender") String parent_gender,
             @Query("child_number") String child_number,
             @Query("child_main_problem") String child_main_problem
+    );
+
+
+    @GET("schedule")
+    Observable<ScheduleResponse> getSchedules(
+            @Header("Authorization")String token,
+            @Query("id") Integer id
     );
 }

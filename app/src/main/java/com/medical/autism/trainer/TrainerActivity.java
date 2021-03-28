@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.navigation.NavigationView;
 import com.medical.autism.R;
 import com.medical.autism.parent.ui.ParentProfile;
+import com.medical.autism.trainer.ui.Scheduales;
 import com.medical.autism.trainer.ui.TrainerProfile;
 
 public class TrainerActivity extends AppCompatActivity {
@@ -75,6 +76,7 @@ public class TrainerActivity extends AppCompatActivity {
                     case R.id.trainer_schedualed: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new Scheduales());
                         break;
                     }
                     default: {
