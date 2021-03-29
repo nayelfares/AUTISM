@@ -13,11 +13,12 @@ public class TrainerPatient {
     public String child_main_problem;
     public String time;
     public String day;
+    public String photo;
 
     public TrainerPatient(
             String user_id, String first_name, String child_name, String last_name, String child_age,
             String parent_job, String marriage_status, String parent_gender, String child_number,
-            String child_main_problem, String time, String day
+            String child_main_problem, String time, String day, String photo
     ) {
         this.user_id = user_id;
         this.first_name = first_name;
@@ -31,6 +32,7 @@ public class TrainerPatient {
         this.child_main_problem = child_main_problem;
         this.time = time;
         this.day = day;
+        this.photo = photo;
     }
 }
 

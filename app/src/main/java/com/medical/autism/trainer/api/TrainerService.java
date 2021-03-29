@@ -102,4 +102,9 @@ public interface TrainerService {
             @Query("id") String id,
             @Query("child_main_problem")String child_main_problem
     );
+
+    @GET("get_parent")
+    Observable<TrainerPatientResponse> getParents(
+            @Header("Authorization")String token
+    );
 }

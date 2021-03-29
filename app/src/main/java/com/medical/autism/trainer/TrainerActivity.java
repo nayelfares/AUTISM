@@ -19,6 +19,7 @@ import com.medical.autism.R;
 import com.medical.autism.parent.ui.ParentProfile;
 import com.medical.autism.trainer.ui.Scheduales;
 import com.medical.autism.trainer.ui.TrainerAppointments;
+import com.medical.autism.trainer.ui.TrainerChat;
 import com.medical.autism.trainer.ui.TrainerPatients;
 import com.medical.autism.trainer.ui.TrainerProfile;
 
@@ -69,6 +70,7 @@ public class TrainerActivity extends AppCompatActivity {
                     case R.id.trainer_chat: {
                         item.setChecked(true);
                         mDrawerLayout.closeDrawers();
+                        replaceFragmentAndClear(new TrainerChat());
                         break;
                     }
                     case R.id.trainer_appointments: {

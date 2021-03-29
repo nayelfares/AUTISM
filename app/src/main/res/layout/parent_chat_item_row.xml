@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:id="@+id/parentChatPhoto"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:gravity="start|center"
+            android:paddingStart="16dp"
+            android:text="Nayel alfares"
+            android:textStyle="bold"
+            android:id="@+id/parentChatParentName"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textAlignment="viewStart"
+            android:paddingStart="16dp"
+            android:text="djfw ew ed "
+            android:textStyle="bold"
+            android:id="@+id/parentChatChildName"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:visibility="visible"
+        android:textAllCaps="false"
+        android:id="@+id/parentChat"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:background="@color/transparent"
+        android:text="@string/chat"/>
+</LinearLayout>
