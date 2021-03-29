@@ -186,7 +186,7 @@ public class ParentProfile extends BaseFragment implements ParentProfileView{
                     parentProfileUsername.getText().toString(),
                     parentProfileEmail.getText().toString(),"",
                     parentProfilePhone.getText().toString(),
-                    "Parent",
+                    "parent",
                     "","","","","","",
                     parentChildName.getText().toString(),
                     parentChildAge.getText().toString(),
