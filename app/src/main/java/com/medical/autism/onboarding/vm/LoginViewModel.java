@@ -34,7 +34,10 @@ public class LoginViewModel {
 
                     @Override
                     public void onNext(@NonNull LoginResponse loginResponse) {
+                        if (loginResponse.success)
                             loginView.loginSuccess(loginResponse.data);
+                        else
+                            loginView.loginFailed(loginResponse.message);
                     }
 
                     @Override
