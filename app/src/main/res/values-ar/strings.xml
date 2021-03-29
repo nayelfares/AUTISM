@@ -65,4 +65,5 @@
     <string name="time">Time</string>
     <string name="day">Day</string>
     <string name="save">Save</string>
+    <string name="chat">Chat</string>
 </resources>

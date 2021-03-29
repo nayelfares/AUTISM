@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,7 +35,16 @@ public class ChatWebView extends Fragment {
         webView.getSettings().setJavaScriptCanOpenWindowsAutomatically( true);
         webView.getSettings().setDomStorageEnabled( true);
         webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebViewClient(new MyWebViewClient());
         CookieManager.getInstance().setAcceptThirdPartyCookies(webView, true);
         webView.loadUrl(link);
+    }
+
+    public class MyWebViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
     }
 }
