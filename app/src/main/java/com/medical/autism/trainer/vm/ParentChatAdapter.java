@@ -44,14 +44,17 @@ public class ParentChatAdapter extends RecyclerView.Adapter<ParentChatAdapter.Vi
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
-        TrainerPatient trainer = parents.get(position);
-        viewHolder.parentChatChildName.setText(trainer.first_name + " " + trainer.last_name);
-        viewHolder.parentChatChildName.setText(trainer.child_name);
+        TrainerPatient parent = parents.get(position);
+        viewHolder.parentChatChildName.setText(parent.first_name + " " + parent.last_name);
+        viewHolder.parentChatChildName.setText(parent.child_name);
         Glide.with(context)
-                .load(Util.toUrl(trainer.photo))
+                .load(Util.toUrl(parent.photo))
                 .into(viewHolder.parentChatPhoto);
        viewHolder.parentChat.setOnClickListener(v->{
-           ((TrainerActivity)context.requireActivity()).replaceFragment(new ChatWebView("http://google.com"));
+           ((TrainerActivity)context.requireActivity()).replaceFragment(
+                   new ChatWebView("https://crm.towarddevelopment.org/api/message?sender_id="+
+                           TrainerActivity.id+"&reciver_id="+parent.user_id)
+           );
        });
     }
 

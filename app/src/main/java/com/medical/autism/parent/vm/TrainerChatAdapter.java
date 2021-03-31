@@ -58,7 +58,10 @@ public class TrainerChatAdapter extends RecyclerView.Adapter<TrainerChatAdapter.
                 .load(Util.toUrl(trainer.photo))
                 .into(viewHolder.trainerChatPhoto);
        viewHolder.trainerChat.setOnClickListener(v->{
-           ((ParentActivity)context.requireActivity()).replaceFragment(new ChatWebView("http://google.com"));
+           ((ParentActivity)context.requireActivity()).replaceFragment(
+                   new ChatWebView("https://crm.towarddevelopment.org/api/message?sender_id="+
+                           ParentActivity.id+"&reciver_id="+trainer.id)
+           );
        });
     }
 
